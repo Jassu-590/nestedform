@@ -1,0 +1,48 @@
+<div class="container">
+<div class="row">
+<div class="mt-5 col-5">
+    <h3>REGISTER HERE</h3>
+    <form [formGroup]="nested" (ngSubmit)="onsubmit()" >
+       <div formGroupName="name">
+         <label>FirstName :</label><br>
+         <input type="text" formControlName="fname"><br>
+         <label>MiddleName :</label><br>
+         <input type="text" formControlName="mname"><br>
+         <label>LastName :</label><br>
+         <input type="text" formControlName="lname"><br>
+       </div>
+       <div>
+        <label>Email :</label><br>
+        <input type="email" formControlName="email"><br>
+       </div>
+       <div>
+        <label>Mobile :</label><br>
+        <input type="tel" formControlName="mobile"><br>
+       </div>
+       <div formGroupName="address">
+          <label>Street :</label><br>
+          <input type="text" formControlName="Street"><br>
+          <label>City :</label><br>
+          <input type="text" formControlName="city"><br>
+          <label>State :</label><br>
+          <input type="text" formControlName="state"><br>
+          <label>Zip Code :</label><br>
+          <input type="number" formControlName="zip">
+       </div><br>
+      <button type="submit">Submit</button>
+    </form>
+</div>
+
+<div class="col-5" *ngIf="submittedData" style="margin-top: 150px;">
+    <p><b>First Name : </b>{{submittedData?.name.fname}}</p>
+    <p><b>Middle Name : </b>{{submittedData?.name.mname}}</p>
+    <p><b>Last Name : </b>{{submittedData?.name.lname}}</p>
+    <p><b>Email : </b>{{submittedData?.email}}</p>
+    <p><b>Mobile : </b>{{submittedData?.mobile}}</p>
+    <p><b>Street : </b>{{submittedData?.address.Street}}</p>
+    <p><b>City : </b>{{submittedData?.address.city}}</p>
+    <p><b>State : </b>{{submittedData?.address.state}}</p>
+    <p><b>ZiP-Code : </b>{{submittedData?.address.zip}}</p>
+</div>
+</div>
+</div>
